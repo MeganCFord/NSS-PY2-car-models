@@ -22,7 +22,7 @@ NSS Back-End Milestone 2 (Command Line Interface) Exercise 3:
 ``` 
 git clone https://github.com/MeganCFord/NSS-PY2-car-models.git
 cd 3-car-models
-python __.py
+python the_app.py
 ```
 
 ![screenshot](car_models_screenshot.jpg)
