@@ -1,5 +1,10 @@
 
 class AppReader:
+    '''
+    This app opens two text files as lists, then combines them together into a dictionary. The first file is a list of car makes, and the second file is a list of car models. the resulting dictionary has the car makes as keys, and the car models as items in the car make value list.
+
+    methods: open_makes, open_models, make_dictionary, print_dictionary.
+    '''
 
     def __init__(self):
         self.dictionary = {}
@@ -27,19 +32,34 @@ class AppReader:
         return models_list
 
     def make_dictionary(self):
+        '''
+        loops through the list of makes in the makes.txt file and creates a dictionary with each make.txt item as a key and an empty list as a value.
+        loops through the list of models in the models.txt file and adds matching models as list items for the corresponting make.
+        Arguments: None.
+        '''
         makes = self.open_makes()
         models = self.open_models()
 
         for make in makes:
+            # create a dictionary entry with an empty list for a value, for each make.
             self.dictionary[make] = []
+            # then loop through the models list and add any models of the correct make to the list.
             for model in models:
                 if model[0] == make[0]:
+                    # note here I'm taking off the '(first letter)=' from the model list items.
                     self.dictionary[make].append(model[2:])
 
-        print(self.dictionary)
+    def print_dictionary(self):
+        '''
+        prints the final dictionary in format. Run only after make_dictionary.
+        arguments: none
+        '''
+        for (key, value) in self.dictionary.items():
+            print(key.upper() + ":")
+            for car in value:
+                print("   " + car)
 
 if __name__ == '__main__':
     app = AppReader()
     app.make_dictionary()
-    # app.open_makes()
-    # app.open_models()
+    app.print_dictionary()
