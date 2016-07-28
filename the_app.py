@@ -55,9 +55,7 @@ class AppReader:
         arguments: none
         '''
         for (key, value) in self.dictionary.items():
-            print(key.upper() + ":")
-            for car in value:
-                print("   " + car)
+            print(key.upper() + ": " + ", ".join(value))
 
 if __name__ == '__main__':
     app = AppReader()
